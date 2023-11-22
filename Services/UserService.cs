@@ -14,7 +14,7 @@ namespace NET12_test.Services
 
         public void Add(User user)
         {
-            var entity = _context.Users.Where(x => x.Email == user.Email).SingleOrDefault();
+            var entity = _context.Users.Where(x => x.Email.ToLower() == user.Email.ToLower()).SingleOrDefault();
             if (entity == null)
             {
                 _context.Users.Add(user);
